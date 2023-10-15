@@ -1,0 +1,216 @@
+AWS: is a cloud computing service .
+----
+
+
+SaSS: Software as a service . maintain by aws , not need to maintian by ourself.
+-----
+
+PaSS: platform as a service . need configure the hardwar and OS. 
+-----
+
+IaSS: Infustructure as a Service . (Mainly we use it. ). Use storage, computing , DB etc resources.
+-----
+
+
+PayAsYouGo: cost per resources, which we can handle according to need ... for handle server requests.
+-----------
+
+SaveWhenYouReserve: Pre bookig for server load and get some discount 
+-------------------
+
+payLessByUsingMore: Suppose we use a service for longtime (2,3years). then we use it. and get hugs discount from AWS.
+-------------------
+
+EC2: Virtual Cloud Computer working with VPC(virtual private cloud)-provide public Ip. EC2 like a VMware. there are 
+----- different tiype of package. EC2 use for -> web hosting , ML , Data analysis.... there lost's of package for EC2.
+
+-----------------------------------------------EC2 useCase--------------------------------------------------------
+Users and organizations across the globe continue to unearth new Amazon EC2 use cases, from simple and straightforward websites to complex machine learning web apps.
+
+Enterprise large and small, developers solo and squad, are finding new and creative ways to put the power that Amazon makes available to them via Elastic Compute Cloud. The virtually unlimited compute capacity, and sublime integrations with other AWS services, means that EC2 is the platform of choice for any and all manner of cloud based solutions.
+
+Let’s take a quick look at some of the interesting and commonly employed ways of putting the Amazon EC2 platform to use.
+
+EC2 use cases
+The low costs and the ability to turn features on or off with the click of a button means everyone from web and application developers to gamers, 
+researchers and scientists to entertainment and marketing companies are jumping in on the EC2 bandwagon to make the cloud work for them.
+
+Here are some common EC2 use cases:
+
+Hosting environments
+One of the foremost uses of EC2 is for hosting a variety of applications, 
+software and websites on the cloud. Users are even hosting games on the cloud, 
+turning the servers on and off when needed. And the best part of this dynamic and scalable environment is that its compute capacity can grow along with the need of the application. This in turn ensures the best quality service for all end users at all times. Companies like Netflix, Reddit, and Nintendo are proof of the EC2 hosting success.
+
+Development and test environments
+The scalable nature of EC2 means that organizations now have the ability to create and deploy large scale testing and development environments with unprecedented ease.
+ The Amazon cloud does away with any heavy upfront investments for hardware, all the while providing as scalable solution.
+
+Backup and disaster recovery
+Companies are leveraging EC2 as a medium for performing disaster recovery for both active and passive environments.
+ The fact that the Amazon Elastic Compute Cloud can be turned up quickly in case of an emergency, 
+means that businesses have access to a faster failover with minimal downtime for their applications.
+
+Banking and financial sector
+These are areas that demand the utmost in security and scalability — both are factors that Amazon EC2 provides in droves.
+ Financial institutions trust the Amazon cloud to provide a range of highly secure services.
+ Retail and commercial banks, credit unions, insurance providers, card service companies, and major payment platforms rely on AWS for their scalable cloud computing needs.
+ EC2 provides efficient solutions for financial giants like Capital One, BBVA, UniCredit, and Pacific Life.
+
+Marketing and advertisement
+Low costs and rapid provisioning capabilities that EC2 allows have resulted in the platform increasingly being used to host marketing and
+ advertising environments on the fly.
+
+High performance computing
+The need for HPC is exponentially on the rise, and EC2 provides specialized virtualized servers that provide both high performance networking and compute power.
+ These can be used to perform a range of CPU intensive and number crunching tasks, including Big Data analytics and processing. NASA uses Amazon EC2 for JPL, and
+ Pfizer is another organization that employs the use of HPC using EC2 instances.
+
+
+============================================Main Part EC2====================================================================
+
+#EC2: Elastic Computing Service . 
+========
+
+as an VMware we can use ECS. in AWS hourly rate counting for computer instance service . we can dynamically increase/decrease 
+the instance of computer (cpu/storage/ram) according to our needs.
+
+Use of EC2: 
+=============
+1. web hosting > ecommerce, enterprise apps solutions, sales apps etc .
+2. Use as Database Hosting > sql, no-sql , in-memory etc. (we can install many-database in perticular storage )
+3. Big Data Analysis > ML , scientific computing, data analysis with nosql.
+4. Backup and disaster recovery > data recovery for apps. 
+5. application testing. > safely we test the apps in isolated environment.
+6. Batch processing > upload Image/video one file extension to another extension > mp4 to wvga. png > jpg.
+7. High performance computing > scientific simulation, Engineering Simulation, Financial Simulation
+----------------------------------------
+
+
+#Draw a diagram of a cloud network to demonstrate the position of EC2: 
+
+in vpc(virtual private cloud): EC2(compute power) + RDS (database)
+------------------------------
+
+Aws : S3(storage)[ vpc[EC2+RDS]]
+------
+
+#*** main diagram => User sent requests-> VPC<-> [ECS <-> (S3+RDS)]. 
+
+--------------------------------------------------
+
+Different types of EC2 and some idea about pricing=> t2 instance free for general purpose use.
+
+1. for normal use of apps user > general type [low price . ]
+2. compute optimize for high network using.
+----------------------------------------------------
+pricing => 
+
+        1. onedimand : mid level task .(charged as our work demand)
+        2. spot instance for batch processing using.
+        3. different region prince is different (usa/singapur)...
+        
+==================================================How to install EC2 instance================================
+
+goto > ec2 > launch instance > select os as ubuntu > free instance for general purpose use select => t2.
+
+> select all dafult settings > key type > pem for linux | ppk for windows . > select the key-pair name .
+
+> then download auto the key. > we can download security key for only 1 times.
+> if we want we can add more security key for download .
+------------------------------
+> by default ssh port allow us . if we and to add more port like , smtp or http then > select instance> security options > 
+> inbound rule > edit options. add or delete  the port . 
+------------------------------
+for connect the ssh > instance > connect > SSH client . follow the instructions.
+-------------------------------------
+
+
+for windows connect ssh with aws ssh > copy the key into c:user/ssh key/ paste here . and change the security > disable inheritance.
+then run aws default connect command . 
+run >>> ssh -i "my-test-key.pem" ubuntu@ec2-13-127-201-90.ap-south-1.compute.amazonaws.com
+>>> ssh -i fileLoactions\fileName.pem ec2-user@aws-ip 
+
+---------------------------------------------instructions for connect ssh port------------------------------------
+Instance ID
+i-0b4569dea11df8230 (my-test-instance)
+Open an SSH client.
+
+Locate your private key file. The key used to launch this instance is my-test-key.pem
+
+Run this command, if necessary, to ensure your key is not publicly viewable.
+ chmod 400 my-test-key.pem
+
+Connect to your instance using its Public DNS:
+ ec2-13-127-201-90.ap-south-1.compute.amazonaws.com
+
+Example:
+
+ ssh -i "my-test-key.pem" ubuntu@ec2-13-127-201-90.ap-south-1.compute.amazonaws.com
+---------------------------------------------------------------------------------
+------------------------------------------------AWS console----------------------------------------------------------------------
+> instance > connect > connect in below button. cick then just connect with console of aws.
+
+---------------------------------------------------------------------------------------------------------
+------------------------------------In the EC2 instance, install git and other prerequisites.--------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+goto >>> cmd : C:/ aws >> cmd >>> ssh -i "my-test-key.pem" ubuntu@ec2-13-233-98-180.ap-south-1.compute.amazonaws.com
+
+>>> sudo apt update
+>>> sudo apt-get install git 
+>>> sudo apt-get install nodejs
+>>> sudo apt-get install npm 
+--------------------------------------------------------------------------------------------------------
+---------------------------------Clone your repository-----------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+>>> mkdir app 
+>>> git clone https://github.com/Ashraful-Momen/AWS.git
+>>> cd AWS 
+
+#generate ssh-keygen => 
+
+>>>ssh-keygen | which store in /home/ubuntu/.ssh/id_rsa/
+>>>cd ~/.ssh | goto ssh folder .
+>>> cat id_rsa.pub | show the ssh key. 
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDrFsDzR3aq5DBxLuc+Jngdl56LV/i+tWf9j50dYqY+4aGslULlbD/cRIv3wJxOawF71BFo8hNbx96nYRwdbIXSCTWhnBZ46oEzQLSWDL0qaRxZ/3OrizNDZh8U8a8bwdS5057h29IlgMpYE+BV11W0zuAZ/phx9U7ah7lmg1zkX++cgT+W4iytEYEhFd77f53LfYBjYfe0t+o5sB8Jf+wlcaeluObuGIYQIEqAYfeyL/EdsHNhGNv3QYXUYwPRwZj3f3+hvpwVGk3PoOfJSRIXNq4qvfFmj7WmMuxlaPsecgziC05SntxO7EdI9jp1V9+BQ0BHiVoSpVDI+4m8JiGczzsqw2Rg/VGV0JidMQmzIbMxOnVyTZlhv661YW/ShirN5ZJVXvRt/jYSwxPDr1xHvst0Qk6es/aSvh5mx8JE6yvd2o3ScM0JgnNpptqdqYcpFMcm7g1ZGsNLd+2zPZUWN2jnPVJ+YKJLMekxMUdX0fchr0lgU+hMDgP+6XYMu+k= ubuntu@ip-172-31-15-131
+
+>>> git profile >>> settings >>> ssh key >>> set title >>> key type : authentications >>> past the key >>> save >>> copy the ssh link 
+>>> goto the app folder >>> git clone ssh-link paste here....
+
+# delete non-empty folder >>> rm -rf folderName
+
+>>>  git clone git@github.com:Ashraful-Momen/AWS.git
+
+>>> goto download project folder >>> npm -i | install the packages.
+
+>>> npm start 
+
+>>> goto aws dashboard >>> instance >>> security group >>> edit inbound rulse >>> add rule >>> custom tcp >>> app port 3000 set >>> save.
+
+>>> npm start 
+>>> goto aws dashboard , copy the local ip >>> goto browser >>> http://13.233.98.180:3000/ >>> see the app is running.
+>>> http://13.233.98.180:3000/todos 
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------
+--------------------------------Demonstrate browsing the application from web browser------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+#run the app if close the aws console  . run the apps for 24/7 on aws server non-stop. 
+for run background globally we have to install >>> sudo npm install -g pm2
+ 
+
+>>> pm2 | check the package is install or not ...
+
+#for run any app in background for all time just type : 
+>>> pm2 start index.js | pm2 start appFileName
+
+#show the running apps: 
+
+>>> pm2 list
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+
