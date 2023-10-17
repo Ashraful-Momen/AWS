@@ -212,6 +212,74 @@ for run background globally we have to install >>> sudo npm install -g pm2
 
 >>> pm2 list
 --------------------------------------------------------------------------------------------------------
+------------------------------------What is S3?--------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+S3: It's a simple storage of service of aws. work like cdn (cashing also ): img/file... etc store s3 for first spead for fetching/uploading data.
+---  S3 also working as storage of apps in aws. 
+        *** s3 file size increase/decrease autometically according to our file size ... and priceing auto also.
+
+Amazon S3=> object storage build to store and retrive any amount of data from anywhere.
+------------
+
+S3 inteligence tiering: auto size increase/decrease and price also . by default select as s3 standerd.
+-----------------------
+
+S3 standerd: High durability and performance.
+------------
+
+s3 standerd infrequent access: if we access storage in weekly or monthly then we use it. low cost . use for backup file also.
+------------------------------
+
+s3 glacier instant Retrival: longtime data backup + instance access in storage . 
+---------------------------
+
+s3 glacier flexible Retival: old memory pic , which is used in website ... store here .... 
+----------------------------
+
+s3 glacier flexible Retival: lowcost cloud storage for longtime archive. it may be for big size files. 
+----------------------------
+
+s3 one-zone infrequent access: if data loss is no problem , then we can store in 1 zone for low cost . 
+------------------------------
+
+s3 outpost: govt project data , telecom project data , or file not use in localstorage 
+
+--------------------------------------------------------------------------------------------------------
+------------------------------------how to create a bucket--------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+aws > service > storage > s3 > create . 
+select unique name > select dafult option > create bucket. 
+
+
+bucket options > version : if we create 2 folder with same name. like old version or new version . 
+incase we delete 1 folder then another will be backup . 
+tagname: we use tag name for pay the bill purpose.
+
+#we can upload file as drack&drop . 
+
+# for changing the file permission , we have to create policy
+goto permission > allow for public , remove all tik sign & save . 
+# goto edit policy > type: s3 > effect : all > principal: * > aws : amazon s3. > action: get object | for public allow the file 
+> ARN: copy from propertise sw3. > add statement> generate policy . copy the policy and paste it on policy. 
+
+{
+  "Id": "Policy1697521490279",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1697521375101",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::aws-s3-practise-ashraful/*",
+      "Principal": "*"
+    }
+  ]
+}
+. >>> "Resource": "arn:aws:s3:::aws-s3-practise-ashraful/*",    | add /*
+
+>>> check the file that showing or not....
 --------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
