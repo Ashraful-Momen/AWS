@@ -281,8 +281,37 @@ goto permission > allow for public , remove all tik sign & save .
 
 >>> check the file that showing or not....
 --------------------------------------------------------------------------------------------------------
+----------------------------------s3 Crud From  youtube----------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------
+1. create a bucket with default settings. 
+2. IAM > USER > create user > set any user name > then give the permission > attach permission >  s3fullaccess. >
+3. Security Crediential >  access key >  local code (for localhost )> select tik > create key.
+  access key => AKIA2MQJ54XJJFCDRP76
+  security access key => dOw01QcdxOXC7xfdEiP3MazBs9PsunXj+pJShbQM
+4.permission > CorsOrigins :
+
+[
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "GET",
+            "POST",
+            "PUT",
+            "DELETE"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": [
+            ""
+        ]
+    }
+]
+
+5. 
+
 --------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
 
